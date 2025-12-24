@@ -1,65 +1,281 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>منصة التعليم المتكاملة</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم الشمندورة - أصل الطعم المصري</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e67e22; /* برتقالي فاتح للشهية */
+            --secondary-color: #2c3e50; /* كحلي غامق للأناقة */
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        /* الهيدر والقائمة */
+        header {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* قسم الترحيب Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #d35400;
+        }
+
+        /* المنيو Menu Section */
+        .menu-section {
+            padding: 5rem 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 1.5rem;
+        }
+
+        .menu-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .price {
+            font-weight: 900;
+            color: var(--secondary-color);
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* فوتر Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 10%;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 1.5rem;
+        }
+
+        /* الموبايل */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 1rem; }
+            nav ul { margin-top: 1rem; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
-  <!-- الرأس -->
-  <header>
-    <h1>منصة التعليم المتكاملة</h1>
-    <nav>
-      <ul>
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#courses">الدورات</a></li>
-        <li><a href="#about">من نحن</a></li>
-        <li><a href="#contact">اتصل بنا</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- المحتوى الرئيسي -->
-  <main>
-    <!-- قسم الرئيسية -->
-    <section id="home">
-      <h2>مرحبًا بك!</h2>
-      <p>ابدأ رحلتك التعليمية معنا اليوم.</p>
+    <header>
+        <div class="logo">الشمندورة</div>
+        <nav>
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#menu">المنيو</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>مطعم الشمندورة</h1>
+        <p>أحلى كشري وطواجن وسندوتشات في مصر</p>
+        <a href="#menu" class="btn">اطلب الآن</a>
     </section>
 
-    <!-- قسم الدورات -->
-    <section id="courses">
-      <h2>الدورات المتاحة</h2>
-      <div class="courses-container" id="courses-container">
-        <!-- بطاقات الدورات ستُضاف هنا ديناميكياً -->
-      </div>
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">قائمة الطعام</h2>
+        
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21bc4a4f8?auto=format&fit=crop&w=500&q=80" alt="كشري">
+                <div class="menu-info">
+                    <h3>كشري الشمندورة</h3>
+                    <p>الخلطة السرية مع الصلصة والدقة الأصلية.</p>
+                    <span class="price">بدءاً من 20 ج.م</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=500&q=80" alt="طواجن">
+                <div class="menu-info">
+                    <h3>طواجن فرن</h3>
+                    <p>طواجن مكرونة باللحمة المفرومة أو الفراخ في الفرن.</p>
+                    <span class="price">45 ج.م</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?auto=format&fit=crop&w=500&q=80" alt="سندوتش كبدة">
+                <div class="menu-info">
+                    <h3>سندوتشات كبدة</h3>
+                    <p>كبدة إسكندراني بالثوم والفلفل الحار.</p>
+                    <span class="price">15 ج.م</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80" alt="بانيه">
+                <div class="menu-info">
+                    <h3>سندوتش بانية</h3>
+                    <p>صدور دجاج مقرمشة مع المايونيز والخس.</p>
+                    <span class="price">25 ج.م</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" alt="حواوشي">
+                <div class="menu-info">
+                    <h3>حواوشي الشمندورة</h3>
+                    <p>لحم بلدي بالتتبيلة الخاصة داخل خبز مقرمش.</p>
+                    <span class="price">35 ج.م</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=80" alt="شاورما">
+                <div class="menu-info">
+                    <h3>شاورما فراخ</h3>
+                    <p>شاورما فراخ سوري مع الثومية والبطاطس.</p>
+                    <span class="price">40 ج.م</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- قسم من نحن -->
-    <section id="about">
-      <h2>من نحن</h2>
-      <p>نحن فريق متخصص في تقديم أفضل الدورات التعليمية بطرق تفاعلية.</p>
-    </section>
+    <footer id="contact">
+        <div class="contact-info">
+            <h3>تواصل معنا</h3>
+            <p>العنوان: القاهرة - وسط البلد - شارع الشمندورة</p>
+            <p>الهاتف: 01000000000</p>
+        </div>
+        <p>&copy; 2023 مطعم الشمندورة. جميع الحقوق محفوظة.</p>
+    </footer>
 
-    <!-- قسم الاتصال -->
-    <section id="contact">
-      <h2>اتصل بنا</h2>
-      <form id="contact-form">
-        <input type="text" id="name" placeholder="الاسم" required />
-        <input type="email" id="email" placeholder="البريد الإلكتروني" required />
-        <textarea id="message" rows="4" placeholder="رسالتك" required></textarea>
-        <button type="submit">إرسال</button>
-      </form>
-      <p id="form-status"></p>
-    </section>
-  </main>
-
-  <!-- التذييل -->
-  <footer>
-    <p>&copy; 2025 منصة التعليم المتكاملة. جميع الحقوق محفوظة.</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
